@@ -39,6 +39,9 @@ if __name__ == "__main__":
     model = show_attend_tell(len(word_dict), 512, True,debug)
     if args.init_model !="":
         model.load_state_dict(torch.load(args.init_model))
+        st = int(args.init_model.split('/')[-1].split('.')[0])+1
+    else:
+        st = 1
     model = model.to(device)
     optimizer = torch.optim.Adam(params=filter(lambda p: p.requires_grad, model.parameters()),lr=args.lr)
 
@@ -73,7 +76,7 @@ if __name__ == "__main__":
             ImageCaptionDataset(test_img_paths,test_captions, val_transforms),
             batch_size=args.batch_size, shuffle=True, num_workers=1)
 
-    for epoch in range(1, 1 + args.epochs):
+    for epoch in range(st, st + args.epochs):
         #scheduler.step()
         model.train()
         losses = AverageMeter()
