@@ -1,7 +1,8 @@
 from torch.utils.data import Dataset
 from PIL import Image
 import torch
-
+import numpy as np
+import random
 
 class ImageCaptionDataset(Dataset):
     def __init__(self, img_paths, captions, transform):
@@ -13,7 +14,6 @@ class ImageCaptionDataset(Dataset):
     def __getitem__(self, index):
         img_path = self.img_paths[index]
         img = Image.open(img_path).convert('RGB')
-
         if self.transform is not None:
             img = self.transform(img)
         return torch.FloatTensor(img), torch.tensor(random.choice(self.captions[index])), torch.tensor(self.captions[index])
