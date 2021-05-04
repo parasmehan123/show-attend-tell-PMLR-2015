@@ -1,0 +1,4 @@
+nltk==3.5
+pytorch
+tqdm
+matplotlib
