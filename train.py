@@ -18,6 +18,7 @@ parser.add_argument('--log_interval',type=int,default=10)
 parser.add_argument('--epochs',type=int,default=1000)
 parser.add_argument('--batch_size',type=int,default=64)
 parser.add_argument('--result_dir',type=str,default="./results/")
+parser.add_argument('--init_model',type=str,default="")
 
 
 
@@ -36,10 +37,12 @@ if __name__ == "__main__":
     train_img_paths, train_captions, validation_img_paths, validation_captions, test_img_paths, test_captions, word_dict, idx_dict = dataset_helper(args.base_dir)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model = show_attend_tell(len(word_dict), 512, True,debug)
+    if args.init_model !="":
+        model.load_state_dict(torch.load(args.init_model))
     model = model.to(device)
     optimizer = torch.optim.Adam(params=filter(lambda p: p.requires_grad, model.parameters()),lr=args.lr)
 
-    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, 5)
+    #scheduler = torch.optim.lr_scheduler.StepLR(optimizer, 5)
     cross_entropy_loss = torch.nn.CrossEntropyLoss().to(device)
 
     train_transforms = transforms.Compose([
@@ -71,7 +74,7 @@ if __name__ == "__main__":
             batch_size=args.batch_size, shuffle=True, num_workers=1)
 
     for epoch in range(1, 1 + args.epochs):
-        scheduler.step()
+        #scheduler.step()
         model.train()
         losses = AverageMeter()
         
