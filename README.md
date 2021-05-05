@@ -9,7 +9,7 @@ For further details on the results and analysis, please refer to.
 
 Make sure you have a Python3+ version. Run the following command - 
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
@@ -19,10 +19,35 @@ pip install -r requirements.txt
 
 Download the dataset from [here](https://drive.google.com/file/d/1h6Mg9RsjUIJyerOZlH4yYRQCIQ5GP0dZ/view?usp=sharing) and unzip the downloaded dataset. This will create a ```./data/``` in the root folder of the repository.  
 
-### Model
+### Training
+```bash
+python3 train.py [--base_dir (str)] [--debug (bool)] [--lr (str)] [--alpha_c (float)] [--log_interval (int)] [--epochs (int)] [--batch_size (int)] [--result_dir (str)] [--init_model (str)]
+```
+Options : 
+```
+--base_dir              Path of directory of data/ folder
 
-The model definition is present in ```model.py``` and the training script is present in ```train.py```. 
+--debug                 Debug : If set to True, then will print debug messages and will run only for one epoch with batch size one. 
 
+--lr                    Learning Rate of Adam optimiser. 
+
+--alpha_c               Regularisation Constant.
+
+--log_interval          Number of batches after you want to print the loss for one epoch.
+
+--epochs                No of epochs you want to train model. 
+
+--batch_size            Batch Size to be used. 
+
+--result_dir            Path of the directory where you want to create results/ folder which will save the trained models. 
+
+--init_model            Path of the model with which you want to initialise the model before training. 
+```
+
+Example Usage : 
+```bash
+python3 train.py --base_dir=/kaggle/input/ass4q1/Data/ --result_dir=/kaggle/working/results --init_model=/kaggle/input/show-33/33.pth
+```
 ## License 
 
 Copyright (c) 2021  Paras Mehan
