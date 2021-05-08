@@ -2,7 +2,7 @@
 
 This repository contains a PyTorch implementation of the PMLR 2015 Paper, [Show, Attend and Tell: Neural Image Caption Generation with Visual Attention](http://proceedings.mlr.press/v37/xuc15.html). For the original implementation of the paper, please refer to the author's implementation in Theano language [here](https://github.com/kelvinxu/arctic-captions).
 
-For further details on the results and analysis, please refer to. 
+For further details on the Data Pre-Processing and Methodology, please refer to ```Report.pdf```
 
 
 ## Installing Dependencies
