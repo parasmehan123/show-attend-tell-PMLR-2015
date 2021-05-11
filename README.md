@@ -4,13 +4,6 @@ This repository contains a PyTorch implementation of the PMLR 2015 Paper, [Show,
 
 For further details on the Data Pre-Processing and Methodology, please refer to ```Report.pdf```
 
-| Soft Attention for the generated images |
-|----------------------|
-| ![](Images/106490881_5a2dd9b7bd.jpg) |
-| ![](Images/136644343_0e2b423829.jpg) |
-| ![](Images/160792599_6a7ec52516.jpg) |
-| ![](Images/249394748_2e4acfbbb5.jpg) |
-
 ## Installing Dependencies
 
 Make sure you have a Python3+ version. Run the following command - 
@@ -54,6 +47,22 @@ Example Usage :
 ```bash
 python3 train.py --base_dir=/kaggle/input/ass4q1/Data/ --result_dir=/kaggle/working/results --init_model=/kaggle/input/show-33/33.pth
 ```
+## Results
+After training the model for 42 epochs, we got the following scores :
+
+| Data  | BLEU1  | BLEU2  | BLEU3  | BLEU4  | METEOR  |
+|---|---|---|---|---|---|
+| Validation Data | 0.5560103298543799   | 0.3012887274731861   | 0.16869948803000315  |0.09124722446388864   | 0.24042306161781762  |
+| Testing Data  | 0.5756577733000581  | 0.3240567011948614  | 0.18865787383495358  | 0.10922486278026644  |  0.25408193751079544  |
+
+| Soft Attention for the generated images |
+|----------------------|
+| ![](Images/106490881_5a2dd9b7bd.jpg) |
+| ![](Images/136644343_0e2b423829.jpg) |
+| ![](Images/160792599_6a7ec52516.jpg) |
+| ![](Images/249394748_2e4acfbbb5.jpg) |
+
+
 ## Inference
 
 Download the trained model from [here](https://drive.google.com/file/d/1cCsgWKPzt7_ihJeUVwE3miNvCDmfmvT1/view?usp=sharing)
@@ -72,6 +81,7 @@ Options :
 --result_dir            Path of the directory where you want to save the generated captions
 
 ```
+
 
 ## License 
 
