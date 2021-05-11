@@ -4,6 +4,12 @@ This repository contains a PyTorch implementation of the PMLR 2015 Paper, [Show,
 
 For further details on the Data Pre-Processing and Methodology, please refer to ```Report.pdf```
 
+| Soft Attention for the generated images |
+|----------------------|
+| ![](Images/106490881_5a2dd9b7bd.jpg) |
+| ![](Images/136644343_0e2b423829.jpg) |
+| ![](Images/160792599_6a7ec52516.jpg) |
+| ![](Images/249394748_2e4acfbbb5.jpg) |
 
 ## Installing Dependencies
 
@@ -48,6 +54,25 @@ Example Usage :
 ```bash
 python3 train.py --base_dir=/kaggle/input/ass4q1/Data/ --result_dir=/kaggle/working/results --init_model=/kaggle/input/show-33/33.pth
 ```
+## Inference
+
+Download the trained model from [here](https://drive.google.com/file/d/1cCsgWKPzt7_ihJeUVwE3miNvCDmfmvT1/view?usp=sharing)
+
+To finally test your trained model run the following command
+
+```
+python3 inferences.py [--base_dir (str)] [--model (str)] [--result_dir (int)] 
+```
+Options : 
+```
+--model                 Path of trained model
+
+--base_dir              Path of directory of data/ folder
+
+--result_dir            Path of the directory where you want to save the generated captions
+
+```
+
 ## License 
 
 Copyright (c) 2021  Paras Mehan
